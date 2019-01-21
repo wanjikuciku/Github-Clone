@@ -12,6 +12,7 @@ import { Http, Headers } from '@angular/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserDirective } from './user.directive';
 import { UserComponent } from './user/user.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UserComponent } from './user/user.component';
     UserDirective,
     UserComponent,
     TimeAgoPipe,
+    HighlightDirective,
 
   ],
   imports: [
