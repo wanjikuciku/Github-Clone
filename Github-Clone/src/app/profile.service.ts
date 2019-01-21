@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Users } from './users';
-import { Repository } from './repository';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
-
+import { Users } from './users';
+import { Repo } from './repo';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
-user: Users;
-repo: Repository;
-newRepo: any;
-newUser: any;
-private userName: string;
 
+export class HubService {
+  user: Users;
+  repo: Repo;
+  newRepo: any;
+  newUser: any;
+  private currentUser: string;
 
-private accessToken = '31c02262d8ab36a442e79ac012a049abe96e6f3d';
+  private accessToken = '31c02262d8ab36a442e79ac012a049abe96e6f3d';
 
   constructor(private http: HttpClient) {
-  this.user = new Users ('', '', '', '', '','','',new Date);
-   this.repo = new Repository('', '', '');
-   console.log('Service Works!');
-   this.userName = 'wanjikuciku';
+
+    this.user = new Users ('', '', '', '', '','','','',new Date);
+    this.repo = new Repo('', '', '');
+    this.currentUser= 'wanjikuciku';
+
   }
   getUserInfo() {
 
@@ -33,29 +33,31 @@ private accessToken = '31c02262d8ab36a442e79ac012a049abe96e6f3d';
       following: string;
       public_repos: string;
       name: string;
+      location: string;
       email: string;
       created_at: Date;
       html_url: string;
 
     }
+
     const promise = new Promise(((resolve, reject) => {
-        this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName +
-        '?access_token=' + environment.apiUrl)
+      this.http.get<ApiResponse>('https://api.github.com/users/' + this.currentUser +
+      '?access_token=' + environment.apiUrl)
 
-        .toPromise().then(response => {
-          this.user.login = response.login;
-          this.user.avatar_url = response.avatar_url;
-          this.user.followers_url = response.followers;
-          this.user.following_url = response.following;
-          this.user.repos_url = response.public_repos;
-          this.user.fullname = response.name;
-          this.user.mail = response.email;
-          this.user.createdAt = response.created_at;
-          this.user.repo_url = response.html_url;
-          console.log(this.user);
+      .toPromise().then(response => {
+        this.user.username = response.login;
+        this.user.image = response.avatar_url;
+        this.user.numFollowers = response.followers;
+        this.user.numFollowing = response.following;
+        this.user.repo = response.public_repos;
+        this.user.names = response.name;
+        this.user.email = response.email;
+        this.user.time = response.created_at;
+        this.user.reposite = response.html_url;
+        console.log(this.user);
 
-        },
-        error => {
+      },
+      error => {
 
         reject(error);
       });
@@ -75,7 +77,7 @@ private accessToken = '31c02262d8ab36a442e79ac012a049abe96e6f3d';
     }
 
     const promise = new Promise(( (resolve, reject) => {
-      this.http.get<ApiResponse>('https://api.github.com/users/' + this.userName + '/repos?access_token=' + environment.apiUrl)
+      this.http.get<ApiResponse>('https://api.github.com/users/' + this.currentUser + '/repos?access_token=' + environment.apiUrl)
       .toPromise()
       .then(response_repo => {
         this.newRepo = response_repo;
@@ -92,9 +94,8 @@ return promise;
   }
 
 
- updateProfile(userName: string) {
-   this.userName = userName;
+ updateSearch(userName: string) {
+   this.currentUser = userName;
  }
-
 
 }

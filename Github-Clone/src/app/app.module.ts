@@ -2,35 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProfileService } from './profile.service';
-import {TimeAgoPipe} from 'time-ago-pipe';
-
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { Http, Headers } from '@angular/http';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HighlightDirective } from './highlight.directive';
-import { UserComponent } from './user/user.component';
-
-
+import { SearchComponent } from './search/search.component';
+import { ProfileService } from './profile.service'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
-    LandingPageComponent,
-    HighlightDirective,
-    UserComponent,
-    TimeAgoPipe,
-
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    RoutingModule,
-
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [ProfileService],
   bootstrap: [AppComponent]
