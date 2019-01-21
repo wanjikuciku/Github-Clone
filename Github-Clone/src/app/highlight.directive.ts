@@ -5,6 +5,16 @@ import { Directive } from '@angular/core';
 })
 export class HighlightDirective {
 
-  constructor() { }
+  constructor(private elem:ElementRef) { }
+  @HostListener('mouseover') onMouseOver(){
+    this.textLight("#999");
+  }
+  @HostListener('mouseleave') onMouseLeave(){
+    this.textLight("#fff");
+  }
+
+  private textLight(action:string){
+    this.elem.nativeElement.style.color = action;
+  }
 
 }
