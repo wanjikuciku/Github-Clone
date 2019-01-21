@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { ProfileService } from './profile.service';
 import {TimeAgoPipe} from 'time-ago-pipe';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { Http, Headers } from '@angular/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { UserDirective } from './user.directive';
-import { UserComponent } from './user/user.component';
 import { HighlightDirective } from './highlight.directive';
+import { UserComponent } from './user/user.component';
+
 
 
 @NgModule({
@@ -20,17 +20,17 @@ import { HighlightDirective } from './highlight.directive';
     AppComponent,
     ProfileComponent,
     LandingPageComponent,
-    UserDirective,
+    HighlightDirective,
     UserComponent,
     TimeAgoPipe,
-    HighlightDirective,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    RoutingModule,
+
   ],
   providers: [ProfileService],
   bootstrap: [AppComponent]
