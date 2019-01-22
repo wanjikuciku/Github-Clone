@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Fruktur');
+body {
+  font-family: 'Fruktur', cursive;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: overline;
+}
