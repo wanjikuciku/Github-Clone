@@ -7,7 +7,7 @@ import { Repo } from './repo';
   providedIn: 'root'
 })
 
-export class HubService {
+export class ProfileService {
   user: Users;
   repo: Repo;
   newRepo: any;

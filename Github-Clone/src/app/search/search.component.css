@@ -1,0 +1,25 @@
+body {
+  font-family: 'Fruktur', cursive;
+}
+
+img {
+  width:180px;
+  border-radius: 45%;
+}
+.row{
+  border: 5px transparent;
+
+  padding: 60px;
+  border: 2px;
+  box-shadow: 5px 5px 20px #8795A1;
+  color: #606F7B;
+  text-align: center;
+
+}
+.round{
+width:20px;
+height:20px;
+ background-color: blue;
+ border-radius: 50%;
+ display: inline-block;
+}
