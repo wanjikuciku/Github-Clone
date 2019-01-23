@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/details', pathMatch: 'prefix' },
+{ path: '', component: LandingPageComponent },
 { path: 'search', component: SearchComponent },
-// { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

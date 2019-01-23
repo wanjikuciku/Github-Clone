@@ -8,13 +8,15 @@ import { SearchComponent } from './search/search.component';
 import { ProfileService } from './profile.service'
 import { HighlightDirective } from './highlight.directive';
 import { TimeAgoPipe } from './time-ago.pipe';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     HighlightDirective,
-    TimeAgoPipe
+    TimeAgoPipe,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

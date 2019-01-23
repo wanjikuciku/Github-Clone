@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col col-md-4">
           <img src="{{user.image}}" alt="Github Profile Image" class="img-responsive">
-          <h2>{{user.names}}</h2>
+          <h2 appHighlight>{{user.names}}</h2>
           <h3>{{user.email}}</h3>
         </div>
         <!-- End of profile display info -->
@@ -29,6 +29,7 @@
         <div class="col col-md-2">
           <button type="button" name="button"> <a href="{{user.reposite}}"><span>Visit Github Account</span></a></button>
           <button type="button" name="button"> <a href="{{user.reposite}}"><span>View all Repositories</span></a></button>
+          <p>Created {{user.time |date }} - {{user.time| timeAgo}}  </p>
         </div>
 
       </div>
